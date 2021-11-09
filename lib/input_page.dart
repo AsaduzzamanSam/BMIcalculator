@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'result_page.dart';
+import 'bottomButton.dart';
 
 enum genderType {
   male,
@@ -214,13 +216,20 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10.0),
-            decoration: BoxDecoration(
-              color: kBottomContainerColor,
-            ),
-            height: kBottomButtonHeight,
-            width: double.infinity,
+          BottomButton(
+            onPress: () {
+              setState(
+                () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ResultPage(),
+                    ),
+                  );
+                },
+              );
+            },
+            bottomTitle: "CALCULATE",
           ),
         ],
       ),
