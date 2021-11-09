@@ -5,7 +5,14 @@ import 'constants.dart';
 import 'bottomButton.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key}) : super(key: key);
+  ResultPage(
+      {required this.bmiResult,
+      required this.resultText,
+      required this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +35,32 @@ class ResultPage extends StatelessWidget {
               flex: 5,
               child: ReusableCard(
                   colour: kActiveCardColor,
-                  cardChild: Column( crossAxisAlignment: CrossAxisAlignment.center,
+                  cardChild: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
                     children: [
-                    Text("OVERWEIGHT", style: kResultTextStyle,),
-                      Text("26.7",style: kBMITextStyle,),
-                      Text("You have a higher than normal body weight. try to exercise more.",textAlign: TextAlign.center,style: kBodyTextStyle,)
-                      
-                  ],),
+                      Text(
+                        resultText.toUpperCase(),
+                        style: kResultTextStyle,
+                      ),
+                      Text(
+                        bmiResult,
+                        style: kBMITextStyle,
+                      ),
+                      Text(
+                        interpretation,
+                        textAlign: TextAlign.center,
+                        style: kBodyTextStyle,
+                      )
+                    ],
+                  ),
                   onPress: () {}),
             ),
-            BottomButton(onPress: (){
-              Navigator.pop(context);
-            }, bottomTitle: "RE_CALCULATE")
+            BottomButton(
+                onPress: () {
+                  Navigator.pop(context);
+                },
+                bottomTitle: "RE_CALCULATE")
           ],
         ));
   }
