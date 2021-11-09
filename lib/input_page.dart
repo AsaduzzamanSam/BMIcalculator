@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
+import 'constants.dart';
 
-const bottomButtonHeight = 80.0;
-const bottomContainerColor = Color(0xFFEB1555);
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
+
 enum genderType {
   male,
   female,
@@ -20,19 +18,6 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
 
    genderType selectedGender = genderType.male;
-  // Color maleCardColor = inactiveCardColor;
-  // Color femaleCardColor = inactiveCardColor;
-  //
-  // void updateColor(genderType gender) {
-  //   gender == genderType.male && maleCardColor == inactiveCardColor
-  //       ? maleCardColor = activeCardColor
-  //       : maleCardColor = inactiveCardColor;
-  //   gender == genderType.female && femaleCardColor == inactiveCardColor
-  //       ? femaleCardColor = activeCardColor
-  //       : femaleCardColor = inactiveCardColor;
-  //
-  //
-  // }
 
   @override
   Widget build(BuildContext context) {
